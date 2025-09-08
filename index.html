@@ -1,147 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>❤️</title>
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Patrick Hand', cursive;
-      text-align: center;
-      background: #ffe6f2;
-      padding: 20px;
-      overflow-x: hidden;
-      overflow-y: auto;
-    }
-    h1 {
-      color: #cc0066;
-      font-size: 6vw;
-      margin-top: 20px;
-    }
-    .hearts {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 30px;
-      gap: 15px;
-      position: relative;
-    }
-    .heart {
-      width: 12vw;
-      max-width: 80px;
-      height: 12vw;
-      max-height: 80px;
-      background: pink;
-      clip-path: polygon(
-        50% 0%, 61% 12%, 75% 12%, 88% 25%, 88% 38%, 
-        75% 50%, 50% 75%, 25% 50%, 12% 38%, 12% 25%, 
-        25% 12%, 39% 12%
-      );
-      cursor: pointer;
-      animation: pulse 1.2s infinite alternate;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      display: inline-block;
-      position: relative;
-    }
-    .heart:hover {
-      transform: scale(1.4);
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.2); }
-    }
-    #message {
-      margin-top: 30px;
-      font-size: 4vw;
-      color: #333;
-      display: none;
-      white-space: pre-line;
-      line-height: 1.8;
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
-      opacity: 0;
-      transition: opacity 2s ease;
-      word-wrap: break-word;
-    }
-    #message.show {
-      display: block;
-      opacity: 1;
-    }
-    .sparkle {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      background: #fff;
-      border-radius: 50%;
-      opacity: 0.8;
-      pointer-events: none;
-      animation: sparkleAnim 1s forwards;
-    }
-    @keyframes sparkleAnim {
-      0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
-      100% { transform: translate(var(--dx), var(--dy)) scale(0.5); opacity: 0; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+body {
+  font-family: 'Patrick Hand', cursive;
+  text-align: center;
+  background: #ffe6f2;
+  padding: 20px;
+  overflow-x: hidden;
+}
+h1 {
+  color: #cc0066;
+  font-size: 6vw;
+  margin-top: 20px;
+}
+.hearts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  gap: 15px;
+  position: relative;
+}
+.heart {
+  width: 12vw;
+  max-width: 80px;
+  height: 12vw;
+  max-height: 80px;
+  position: relative;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 0.3s ease, opacity 0.5s ease;
+}
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  height: 80%;
+  background: pink;
+  border-radius: 50%;
+}
+.heart::before {
+  left: 50%;
+  top: 0;
+}
+.heart::after {
+  left: 0;
+  top: 0;
+}
+.heart:hover {
+  transform: scale(1.4);
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.2); }
+}
+#message {
+  margin-top: 30px;
+  font-size: 4vw;
+  color: #333;
+  display: none;
+  white-space: pre-line;
+  line-height: 1.8;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+#message.show {
+  display: block;
+  opacity: 1;
+}
+.sparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: hotpink;
+  border-radius: 50%;
+  opacity: 0.9;
+  pointer-events: none;
+  animation: sparkleAnim 1s forwards;
+}
+@keyframes sparkleAnim {
+  0% { transform: translate(0,0) scale(1); opacity: 0.9; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0.5); opacity: 0; }
+}
+</style>
 </head>
 <body>
-  <h1>Tap the ❤️ to reveal</h1>
-  <div class="hearts">
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-  </div>
-  <div id="message">
-    Dear bujjukutty,  
-    I'm really sorry da. ivlo naalah olunga pesama irunthathuku. naanum evlovo try pannen mudinja vara pesa ana mudila. nee evlo kastam pattu iruppanu enaku theriyum. naa oru loosu. im so so sorry. unna ipdi feel panna vachathuku. enakum oru maathirive irunthutu irunthuchu. guiltyah. ena da pesalaamnu nenaikurom ana thungite irukkenu. kaduppu aachu enaku en mela. ana etho nee purinjipa apdinu nenachitu konjam amaithiya irunthen. appaiyum manasu kekula. unkita pesama ipdi pannitu irukkeney nu guilty ah thaan irunthuchu. im so sorry.  
+<h1>Tap the ❤️ to reveal</h1>
+<div class="hearts">
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+  <div class="heart"></div>
+</div>
+<div id="message">
+Dear bujjukutty,  
+I'm really sorry da. ivlo naalah olunga pesama irunthathuku... [your full letter continues here]
+</div>
+<script>
+const hearts = document.querySelectorAll('.heart');
+const message = document.getElementById('message');
+let clicks = 0;
 
-    i love you so much.💋💋💋💋💋💋💋💋💋💋💋💋 naa iruppen unkuda kadasi varaikum. pesunaalum pesalanaalum you're always on my mind 24/7. un mela thuli kuda en love koraiyathu. epome.💋💋💋💋💋💋💋💋💋💋💋💋💋💋  
+hearts.forEach(heart => {
+  heart.addEventListener('click', () => {
+    const drift = (Math.random() * 20 - 10) + "vw";
+    heart.style.transition = 'transform 1s ease, opacity 1s ease';
+    heart.style.transform = `translateY(-30vh) translateX(${drift}) scale(1.5)`;
+    heart.style.opacity = '0';
+    heart.style.pointerEvents = 'none';
 
-    nee ethukume feel pannatha da. ena stressah depressionah irunthalum enkita sollu. naa irukken unaku. i love you chellam. love you love you love you love you love you love you love you love you ummmmmmmmmmmaaaaaaaa ummmmmmmmmmmmmaaa ummmmmmmmmmmaaa.💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋💋  
+    // Sparkles
+    for(let i=0;i<5;i++){
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = (heart.offsetLeft + heart.offsetWidth/2) + 'px';
+      sparkle.style.top = (heart.offsetTop + heart.offsetHeight/2) + 'px';
+      const dx = (Math.random() * 60 - 30) + 'px';
+      const dy = (Math.random() * -60 - 20) + 'px';
+      sparkle.style.setProperty('--dx', dx);
+      sparkle.style.setProperty('--dy', dy);
+      document.body.appendChild(sparkle);
+      setTimeout(()=>sparkle.remove(),1000);
+    }
 
-    please manichiru.🙇‍♀️🙇‍♀️🙇‍♀️
-  </div>
-
-  <script>
-    const hearts = document.querySelectorAll('.heart');
-    const message = document.getElementById('message');
-    let clicks = 0;
-
-    hearts.forEach(heart => {
-      heart.addEventListener('click', () => {
-        // Heart float
-        const drift = (Math.random() * 20 - 10) + "vw";
-        heart.style.transition = 'transform 1s ease, opacity 1s ease';
-        heart.style.transform = `translateY(-30vh) translateX(${drift}) scale(1.5)`;
-        heart.style.opacity = '0';
-        heart.style.pointerEvents = 'none';
-
-        // Sparkles
-        for (let i = 0; i < 5; i++) {
-          const sparkle = document.createElement('div');
-          sparkle.classList.add('sparkle');
-          sparkle.style.left = (heart.offsetLeft + 20) + 'px';
-          sparkle.style.top = (heart.offsetTop + 20) + 'px';
-          const dx = (Math.random() * 60 - 30) + 'px';
-          const dy = (Math.random() * -60) + 'px';
-          sparkle.style.setProperty('--dx', dx);
-          sparkle.style.setProperty('--dy', dy);
-          document.body.appendChild(sparkle);
-          setTimeout(() => sparkle.remove(), 1000);
-        }
-
-        clicks++;
-        if (clicks === hearts.length) {
-          setTimeout(() => {
-            message.classList.add('show');
-          }, 1000);
-        }
-      });
-    });
-  </script>
-</body>
-</html>
+    clic
