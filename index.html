@@ -10,6 +10,7 @@ body {
   font-family: 'Patrick Hand', cursive;
   text-align: center;
   background: #ffe6f2;
+  margin: 0;
   padding: 20px;
   overflow-x: hidden;
 }
@@ -31,10 +32,10 @@ h1 {
   max-width: 80px;
   height: 12vw;
   max-height: 80px;
-  position: relative;
   cursor: pointer;
   transform: scale(1);
   transition: transform 0.3s ease, opacity 0.5s ease;
+  position: relative;
 }
 .heart-inner {
   width: 100%;
@@ -75,78 +76,5 @@ h1 {
   font-size: 8vw;
   opacity: 0;
   transition: opacity 1s ease;
-  display: block;
   margin: 20px auto 0;
-  animation: bounce 1s ease infinite alternate;
-}
-@keyframes bounce {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-10px); }
-}
-</style>
-</head>
-<body>
-<h1>Tap the ❤️ to reveal</h1>
-<div class="hearts">
-  <div class="heart"><div class="heart-inner"></div></div>
-  <div class="heart"><div class="heart-inner"></div></div>
-  <div class="heart"><div class="heart-inner"></div></div>
-  <div class="heart"><div class="heart-inner"></div></div>
-  <div class="heart"><div class="heart-inner"></div></div>
-</div>
-<div id="message">
-Dear bujjukutty,  
-I'm really sorry da. ivlo naalah olunga pesama irunthathuku... [your full letter continues here]
-
-Scroll to the end to see a surprise! 💖
-</div>
-<div id="kiss">💋</div>
-
-<script>
-const hearts = document.querySelectorAll('.heart');
-const message = document.getElementById('message');
-const kiss = document.getElementById('kiss');
-let clicks = 0;
-
-// Hearts floating & sparkles
-hearts.forEach(heart => {
-  heart.addEventListener('click', () => {
-    const drift = (Math.random() * 20 - 10) + "vw";
-    heart.style.transition = 'transform 1s ease, opacity 1s ease';
-    heart.style.transform = `translateY(-30vh) translateX(${drift}) scale(1.5)`;
-    heart.style.opacity = '0';
-    heart.style.pointerEvents = 'none';
-
-    const sparkleInterval = setInterval(() => {
-      for (let i = 0; i < 3; i++) {
-        const sparkle = document.createElement('div');
-        sparkle.classList.add('sparkle');
-        sparkle.style.left = (heart.offsetLeft + heart.offsetWidth/2) + 'px';
-        sparkle.style.top = (heart.offsetTop + heart.offsetHeight/2) + 'px';
-        const dx = (Math.random() * 60 - 30) + 'px';
-        const dy = (Math.random() * -60 - 20) + 'px';
-        sparkle.style.setProperty('--dx', dx);
-        sparkle.style.setProperty('--dy', dy);
-        document.body.appendChild(sparkle);
-        setTimeout(() => sparkle.remove(), 1000);
-      }
-    }, 100);
-
-    setTimeout(() => clearInterval(sparkleInterval), 1000);
-
-    clicks++;
-    if (clicks === hearts.length) {
-      setTimeout(()=>{ message.scrollIntoView({behavior:'smooth'}); },500);
-    }
-  });
-});
-
-// Show kiss mark when scrolled to bottom of page
-window.addEventListener('scroll', () => {
-  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
-    kiss.style.opacity = 1;
-  }
-});
-</script>
-</body>
-</html>
+  di
